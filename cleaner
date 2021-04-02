@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rm dissertation.aux dissertation.out dissertation.dvi dissertation.log dissertation.toc dissertation.idx
