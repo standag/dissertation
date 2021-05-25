@@ -59,6 +59,7 @@
 %  \usepackage[mtbold,mtplusscr,mtpluscal]{mathtime} % komercni matematicky font, 
 % dostupne pouze na UMS
 
+\bibliographystyle{cj}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%% BALIKY POTREBNE PRO SABLONU %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,19 +249,15 @@ citovány.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TEXT PRACE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\HlavickaZnaceni
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
 \vloz{parts/01_introduction}
 \cleardoublepage
 
-\HlavickaUvod
-\setcounter{page}{1}
-\pagenumbering{arabic}
 \vloz{parts/02_theory_and_methods}
 \cleardoublepage
 
-%\renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{}}
-%\renewcommand{\sectionmark}[1]{\markright{\thesection. #1}{}}
-%\HlavickaKapitoly
 \vloz{parts/03_results}
 \cleardoublepage
 
@@ -275,10 +272,10 @@ citovány.}
 %\vloz{text_prace/06_Priloha}
 %\cleardoublepage
 
-%\renewcommand{\bibname}{Seznam použité literatury}
-%\HlavickaLiteratura
-%\vloz{text_prace/07_Literatura}
-%\cleardoublepage
+\renewcommand{\bibname}{Seznam použité literatury}
+\HlavickaLiteratura
+\bibliography{bibliography}
+\cleardoublepage
 
 %\renewcommand{\indexname}{Rejstřík}
 %\HlavickaRejstrik
