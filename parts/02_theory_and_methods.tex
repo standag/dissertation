@@ -5,27 +5,230 @@
 
 \section{Molecular Structure in Computer}
 
+The chemical structure is the essential information for chemoinformatics and
+computational chemistry calculations. We recognize different types of chemical
+structures according to the complexity of information \cite{Gasteiger2006}. 
+
+The empirical or chemical formula provides information about molecule
+composition -- elements and their count. The structural formula (2D structure)
+extends this information about topology -- bonds between atoms. The
+three-dimensional structure also provides the conformation of a molecule -- the
+relative placement of atoms in space. We try to provide conformation with the
+lowest energy representing the most probable conformation of molecule
+in reality. For some applications, there can even be an assembly of
+these 3D structures.
+
+In chemoinformatics, two-dimensional structures are often used, but the
+three-dimensional structure can often bring new information into the
+\textit{in silico} calculations or models. On the other hand, this 3D structure
+can be obtained experimentally for a limited number of small molecules. What
+with other molecules, including those which were not synthesized yet?
+
 \section{3D Structure Calculation}
+
+We apply more computationally efficient methods for 3D structure computation
+because we use them as input for high-throughput methods. For this reason, many
+resources were devoted to the development of fast and accurate 3D structure
+prediction methods \cite{Sadowski2003}. These can be classified into the following
+groups []: rule-based and data-based, fragment-based, numerical methods, and
+conformational analysis. These rule-based and data-based, fragment-based
+methods are partially overlying.
 
 \subsection{Rule-Based and Data-Based Methods}
 
+These methods [] use chemical knowledge of geometric and energetic rules known
+from experiments and theoretical calculations. In these methods, we use rules
+explicitly to describe, e.g., bond lengths and angles; we use data implicitly
+to describe, e.g., ring conformation.
+
 \subsection{Fragment-Based Method}
+
+The fragment-based method [] is the incremental method using rules in the first
+step to fragment a structure into parts. According to the following rules,
+the parts are assembled by linking fragment templates from a library
+(database). Predicted structures are created from the most similar and largest
+fragments in a database as possible.
 
 \subsection{Numerical Method}
 
+These numerical methods [] consist of three methods: molecular mechanics
+(MM), quantum mechanics, and distance geometry (DG). Distance geometry is
+a great tool to prepare a reasonable initial structure, which is very close
+to some low-energy conformation. For this structure, we can use
+the optimization process from MM or/and QM.
+
 \subsection{Conformational Analysis}
+
+This method [] generates a set of conformations for one molecule using
+different approaches - genetic algorithms, systematic methods, random
+techniques, Monte Carlo or MD simulation. The one or more different structures
+are selected based on criteria such as the number of conformers, minimum
+RMSD [], only conformations with the lowest MM energy (low-energy conformers).
 
 \chapter{Partial Atomic Charges}
 
 \section{The Concept of Atomic Charges}
 
+Atomic charges are a theoretical concept for the quantitative description of
+electron density around every atom in a molecule. The first basic concept came
+from early chemistry, where an integer expressed these charges (e.g. -1, +2).
+Later, they were a real number (partial charge) in organic chemistry and
+physical chemistry \cite{Atkins2011}. It is a great approach to explain the
+mechanism of a lot of chemical reactions. Recently, partial atomic charges also
+became popular in chemoinformatics, as they proved to be informative descriptors
+for QSAR and QSPR modeling \cite{Chaves2006, Gross2002} and for other
+applications \cite{Moller2005, Zhang2006, Ghafourian2000}; they can be utilized
+in virtual screening \cite{Galvez1994, Stalke2011} and similarity
+searches \cite{Lyne2002, Bissantz2000}. In reality, we are not able to measure
+these numbers, only calculate or estimate them. For such reasons, many different
+approaches for the calculation of partial atomic charges were developed.
+
 \section{Overview of Charge Calculation Methods}
 
 \subsection{QM Charge Methods}
 
+These methods use a wave function as a starting point and then apply subsequent
+population analysis, charge calculation scheme, or fit to some physical
+observation \cite{spark}. 
+
+Mulliken population analysis (MPA) \cite{Mulliken1955, Mulliken1955a} simply
+calculates a charge of an atom as a sum of an electron density from its
+molecular orbitals and a half of an electron density from its bonding orbitals.
+Natural population analysis (NPA) \cite{Reed1983, Reed1985} sophisticatedly
+improves the MPA method by orthogonalization of specific atoms and after this,
+NPA performs charge assignment from electron density the same way as in MPA.
+NPA atomic charges are more stable and independent of the size of basis sets.
+Other possible population analyses are Löwdin population
+analysis \cite{Lowdin1950}, Hirshfeld population analysis \cite{Hirshfeld1977}.
+
+AIM (atoms-in-molecules) charge calculation scheme is based on the idea that
+electron density measured by X-ray can help with the calculation of partial
+charges. Bader and his coworkers \cite{Bader1985, Bader1991} defined an atomic
+volume that is used for charge calculation. Other well-known approaches are
+electrostatic potential fitting methods (ESP) like CHELPG \cite{Breneman1990}
+or MK (Merz-Singh-Kollman) \cite{Besler1990} and their extension -- RESP
+methods \cite{Woods2015}.
+
+Cramer and at \cite{Marenich2009} also developed semiempirical methods -- charge
+model 5 (CM5), which extends Hirshfeld population analysis by empirical
+parameters to reproduce charge-dependent observables. 
+
 \subsection{Empirical Methods}
 
+Empirical approaches use only empirical parameters, and some of these can
+calculate charges from the 3D structure or only from the topology (2D structure)
+of a molecule. Therefore, they are distinctly faster than QM approaches. 
+
+One of the first empirical methods developed, CHARGE [67], performs a breakdown
+of the charge transmission by polar atoms into single-bond, double-bond, and 
+triple-bond additive contributions. Other empirical methods have been developed
+on the electronegativity equalization principle. One group of these empirical
+approaches are using the Laplacian matrix formalism and the product is
+a redistribution of electronegativity: Gasteiger-Marsili (PEOE, partial
+equalization of orbital electronegativity) \cite{Cho2001, Oliferenko2006},
+GDAC (geometry-dependent atomic charge) \cite{Shulga2008}, KCM (Kirchhoff charge
+model) \cite{Rappe1991}, DENR (dynamic electronegativity
+relaxation) \cite{Nistor2006} or TSEF (topologically symmetric energy
+function) \cite{Nistor2006}.
+
+%TODO: check that same ref for 2 methods
+
+The second group of approaches applies the full equalization of orbital
+electronegativity. For example, this group contains EEM (electronegativity
+equalization method) \cite{Mortier1986} and its extensions (
+ABEEM \cite{Wilmer2012}, SFKEEM \cite{Chaves2006}), QEq (charge
+equilibration) \cite{Rappe1991}, EQEq (extended QEq) \cite{Wilmer2012}, or
+SQE (split charge equilibration) \cite{Nistor2006}.
+
+Group of conformationally independent methods (based on the 2D structure)
+contains CHARGE, Gasteiger-Marsili, KCM, DENR, and TSEF. Group of
+conformationally dependent -- geometrical charges (based on the 3D structure)
+also consider an influence of conformation and includes the following methods:
+GDAC, EEM, ABEEM, SFKEEM, QEq, EQeq, and SQE.
+
+A typical representative of the topological method is the Gasteiger-Marsili
+method, which first assigns charges based on atom types and then iteratively
+updates atomic charges based on the closest partners. The correction is smaller
+and smaller in every step until the sixth step when these corrections are too
+small and atomic charges are final. Empirical parameters for this method were
+calculated from QM. 
+
+On the other hand, the EEM method needs a complete 3D structure and more
+applicable charges for some of the applications.
+
 \section{EEM Calculation}
+
+EEM (electronegativity equalization method) \cite{Mortier1986} is one of the
+most popular empirical charge calculation methods and was developed more than
+twenty years ago. This method's new parameterizations [D17, D56–D62] and
+extension [D59, D63, D64] are still under development. An advantage of EEM
+calculation is that it considers the influence of the molecule's conformation
+on the atomic charges. For this reason, EEM charges are often used
+in predictive models as chemoinformatics regressors (descriptors) [D65].
+
+EEM is based on three principles: 
+
+The first principle is Sanderson's electronegativity equalization principle.
+It assumes that the effective electronegativity of each atom in the molecule
+is equal to the molecular electronegativity:
+
+\begin{equation}
+    \chi_1 = \chi_2 = \cdots = \chi_x = \bar{\chi} 
+\end{equation}
+where $\chi_x$ is the effective electronegativity of the atom $x$ and
+$\bar{\chi}$ is the molecular electronegativity.
+
+The second principle is the principle of the charge balance. The sum of all
+charges is equal to the total charge $Q$:
+
+\begin{equation}
+    \sum_{x=1} q_x = Q
+\end{equation}
+where $q_x$ is the charge of the atom $x$.
+
+And the last principle is the principle of charge-dependent electronegativity.
+This principle is the definition of atomic electronegativity, and states that
+the electronegativity of each atom can be expressed as a function of its charge: 
+
+\begin{equation}
+    \chi_x = A_x + B_x \cdot q_x + \kappa \sum^N_{y=1 \: x\neq{y}} \frac{q_y}{R_{x,y}} 
+\end{equation}
+where $R_{x,y}$ is the distance between atoms $x$ and $y$, and the coefficients
+$A_x$, $B_x$ and $\kappa$ are empirical parameters. 
+
+These principles can be summed up to a system of equations with N + 1 unknowns
+(where $q_1$, $q_2$, ... , $q_N$ and $\bar{\chi}$):
+
+\begin{equation}
+    \left(
+    \begin{array}{ccccc}
+        B_1                 & \frac{q_y}{R_{1,2}} & \cdots & \frac{q_y}{R_{1,N}} & -1     \\
+        \frac{q_y}{R_{2,1}} & B_2                 & \cdots & \frac{q_y}{R_{2,N}} & -1     \\
+        \cdots              & \cdots              & \cdots & \cdots              & \cdots \\
+        \frac{q_y}{R_{N,1}} & \frac{q_y}{R_{N,2}} & \cdots & B_N                 & -1     \\ 
+        1                   & 1                   & 1      & 1                   & 0      \\  
+    \end{array}
+    \right) \cdot
+    \left(
+    \begin{array}{c}
+        q_1        \\
+        q_2        \\
+        \cdots     \\
+        q_N        \\
+        \bar{\chi} \\
+    \end{array}
+    \right) =
+    \left(
+    \begin{array}{c}
+        -A_1   \\
+        -A_2   \\
+        \cdots \\
+        -A_N   \\
+        Q      \\
+    \end{array}
+    \right)
+\end{equation}
+
 
 \section{Quality and Usability of EEM parameters}
 
