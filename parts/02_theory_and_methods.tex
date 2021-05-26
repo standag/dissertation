@@ -191,10 +191,10 @@ This principle is the definition of atomic electronegativity, and states that
 the electronegativity of each atom can be expressed as a function of its charge: 
 
 \begin{equation}
-    \chi_x = A_x + B_x \cdot q_x + \kappa \sum^N_{y=1 \: x\neq{y}} \frac{q_y}{R_{x,y}} 
+    \chi_i = A_i + B_i \cdot q_i + \kappa \sum^N_{j=1 \: i\neq{j}} \frac{q_j}{R_{i,j}} 
 \end{equation}
-where $R_{x,y}$ is the distance between atoms $x$ and $y$, and the coefficients
-$A_x$, $B_x$ and $\kappa$ are empirical parameters. 
+where $R_{i,j}$ is the distance between atoms $i$ and $j$, and the coefficients
+$A_i$, $B_i$ and $\kappa$ are empirical parameters. 
 
 These principles can be summed up to a system of equations with N + 1 unknowns
 (where $q_1$, $q_2$, ... , $q_N$ and $\bar{\chi}$):
@@ -202,18 +202,18 @@ These principles can be summed up to a system of equations with N + 1 unknowns
 \begin{equation}
     \left(
     \begin{array}{ccccc}
-        B_1                 & \frac{q_y}{R_{1,2}} & \cdots & \frac{q_y}{R_{1,N}} & -1     \\
-        \frac{q_y}{R_{2,1}} & B_2                 & \cdots & \frac{q_y}{R_{2,N}} & -1     \\
-        \cdots              & \cdots              & \cdots & \cdots              & \cdots \\
-        \frac{q_y}{R_{N,1}} & \frac{q_y}{R_{N,2}} & \cdots & B_N                 & -1     \\ 
-        1                   & 1                   & 1      & 1                   & 0      \\  
+        B_1                    & \frac{\kappa}{R_{1,2}} & \cdots & \frac{\kappa}{R_{1,N}} & -1     \\
+        \frac{\kappa}{R_{2,1}} & B_2                    & \cdots & \frac{\kappa}{R_{2,N}} & -1     \\
+        \vdots                 & \ddots                 & \vdots & \vdots                 & \vdots \\
+        \frac{\kappa}{R_{N,1}} & \frac{\kappa}{R_{N,2}} & \cdots & B_N                    & -1     \\ 
+        1                      & 1                      & 1      & 1                      & 0      \\  
     \end{array}
     \right) \cdot
     \left(
     \begin{array}{c}
         q_1        \\
         q_2        \\
-        \cdots     \\
+        \vdots     \\
         q_N        \\
         \bar{\chi} \\
     \end{array}
@@ -222,28 +222,193 @@ These principles can be summed up to a system of equations with N + 1 unknowns
     \begin{array}{c}
         -A_1   \\
         -A_2   \\
-        \cdots \\
+        \vdots \\
         -A_N   \\
         Q      \\
     \end{array}
     \right)
 \end{equation}
-
+The first values of parameters $A_i$ and $B_i$ were modifications
+of experimental hardness and electronegativity \cite{Mortier1986}. $\kappa$ was
+equal to 1. Nowadays, these parameters are calculated from the QM
+charges [D17, D56–D62]. Therefore, EEM charges were correlated with the QM
+charge calculated with the same method used for parametrization.
 
 \section{Quality and Usability of EEM parameters}
 
+The quality of EEM parameters describes how the empirical charges computed
+using these EEM parameters correspond with QM charges used for EEM
+parameterization. Three main characteristics can describe the quality of
+EEM parameters -- the coefficient of determination [D69, D70] root mean
+square error (RMSE) [D69, D70] and average absolute error ($\bar{\Delta}$).
+
+\textbf{The coefficient of determination $R^2$} is the squared value of the
+Pearson coefficient (equation \ref{eq:coef_det}). This value describes the
+linear correlation rate. Values close to 1 mean that values correlate very well,
+and values close to 0 mean no correlation.
+
+\begin{equation} \label{eq:coef_det}
+    R = \sqrt{\frac{
+        \sum^N_{x=1}{((q^{calc}_x - \overline{q}^{calc}_x) \cdot (q^{ref}_x - \overline{q}^{ref}_x))}
+    }{
+        \sum^N_{x=1}{(q^{calc}_x - \overline{q}^{calc}_x)^2} \cdot \sum^N_{x=1}{(q^{ref}_x - \overline{q}^{ref}_x)^2}
+    }}
+\end{equation}
+where $q^{ref}$ is the reference value of charge calculated by QM and $q^{calc}$
+is charge value calculated by EEM. $\overline{q}^{ref}$, $\overline{q}^{calc}$
+are the average value of $q^{ref}$, respectively $q^{calc}$.
+
+\textbf{Root mean square error} RMSE is the normalized sum of squared error
+describing the reliability of the model calculated by:
+
+\begin{equation}
+    \mathrm{RMSE} = \frac{
+        \sum^N_{x=1}{(q^{calc}_x - q^{ref}_x)^2}
+    }{
+        N
+    }
+\end{equation}
+
+\textbf{Average absolute error} $\overline{\Delta}$ is an averaged difference
+between corresponding EEM and QM charges in a molecule and is calculated
+according to an equation:
+
+\begin{equation}
+    \overline{\Delta} = \frac{
+        \sum^N_{x=1}{|q^{calc}_x - q^{ref}_x|}
+    }{
+        N
+    }
+\end{equation}
+
+Their \textbf{coverage} describes the applicability of EEM parameters.
+Coverage is a percentage value describing EEM parameters' ability to calculate
+charges for individual molecules in a dedicated dataset. \textit{De facto},
+this coverage depends on the representation of atom types in EEM parameters.
+
+\begin{equation}
+    \mathrm{coverage} = \frac{N_{pos}}{N_{tot}}
+\end{equation}
+where $N_{pos}$ is the number of molecules able calculated by EEM parameters
+and $N_tot$ is the total number of molecules in a dataset.
+
 \section{EEM Parametrization}
+
+For the parameterization of EEM charges, a lot of different methods have been
+introduced []. We can summarize it into two groups: one group contains
+a method that analytically solves equation x -- linear regression [] and the
+second group contains optimization methods \cite{Ouyang2009}  such as
+Accelerated Random Search, Particle Swarm Optimization, and Differential
+Evolution algorithms. Both of these groups need input -- a set of molecules
+with 3D structures and QM atomic charges. In my work, linear regression and
+differential evolution were used, and therefore, they are described in more
+detail below:
+
+\textbf{The linear regression (LR)} method is based on these two equations:
+
+\begin{equation}
+    A_i + B_i \cdot x = y
+\end{equation}
+
+\begin{equation}
+    \begin{array}{cc}
+    x =& q_i \\
+    y =& \chi_i - \kappa \sum^N_{j=1 \: i\neq{j}} \frac{q_j}{R_{i,j}} \\
+    \end{array}
+\end{equation}
+
+Equations are derived from equations \ref{eq:eem1} and \ref{eq:eem2}, which
+define the EEM method. In the LR method, the dataset of molecules with QM
+charges can change in every iteration to improve the quality of resulting
+charges. Quality criterium can be the Pearson correlation coefficient or
+the coefficient of determination, and the root mean square error or different
+types of errors.  An advantage of the LR method is its straightforwardness and
+the possibility to optimize $\kappa$ by another iteration. On the other hand,
+this method is not possible to make parametrization for some extensions of EEM
+like SFKEEM and ABEEM.
+
+\textbf{Differential Evaluation (DE)} \cite{Storn1997} is a heuristics method
+to focus on finding a global minimum of a function. This method works similar
+to other optimization methods -- iteratively optimize parameters to improve
+the final solution. Parameters of function are set up randomly, mutated, and
+evaluated until there is no best solution.
 
 \chapter{Acid Dissociation COnstant Prediction}
 
 \section{Motivation}
 
+The acid dissociation constant (p$K_a$) is a physicochemical property that
+characterizes the strength of acids. It is one of the essential properties
+for pharmaceutical, chemical, biological and environmental research or industry.
+For example, it can be used in the chemoinformatics pipeline for evaluation and
+optimization of drug candidate \cite{Ishihama2002, Babic2007, Manallack2007},
+ADME profiling \cite{Wan2006, Cruciani2009}, pharmacokinetics \cite{Comer2001},
+understanding protein-ligand interactions \cite{Klebe2000, Lee2009}.
+
 \section{Overview of Approaches}
+
+Several different approaches for pKa prediction have been
+developed \cite{Lee2009, Rupp2010, Fraczkiewicz2006, Ho2010}. 
 
 \subsection{LFER (Linear Free Energy Relationships) Methods}
 
+This is one of the oldest methods \cite{Clark1964, Perrin1981} for p$K_a$
+prediction. This method uses the linear relation of Gibbs energy and p$K_a$ or
+the logarithm of a reaction rate constant -- the Hammett and Taft equations.
+An advantage of this method is a simple, straightforward, and quick calculation,
+but on the other hand, we need substituent and reaction parameters.
+This method is still used in the programs ACD/pKa \cite{acd},
+EPIK \cite{Shelley2007}, and SPARC \cite{spark}.
+
 \subsection{Database Methods}
+
+These methods \cite{Sayle, Blower2006} use a library (database) of molecules
+with known pKa values. The p$K_a$ value is taken directly from this library, or 
+it is interpolated or triangulated from most similar molecules in this library.
+Most accurate results are produced only for molecules that are similar to
+molecules in the database. For this reason, it is essential to have
+an extensive library.
 
 \subsection{Ab Inition Quantum Mechanical Calculations}
 
+These methods \cite{Liptak2002, Toth2001} use the fact that the dissociation 
+constant can be calculated from the Gibbs energy of the reaction and from the
+solvation based on equation~\ref{eq:ka}. However, there is no general approach,
+and every specific calculation configuration needs to be calibrated based on
+experimental values. The significant disadvantage of these methods is that they
+are time-consuming. On the other hand, these methods can be very accurate if
+they use correct calibration parameters. It is only one of the few methods that
+can be used to extend the training dataset with experimental values or validate
+some of this experimental value. It means that other methods can be improved
+by this method. This method is implemented as a module of the Jaguar quantum
+chemical software package \cite{jaguar}.
+
+\begin{equation}
+    \mathrm{p}K_a = - \log_{10} K_a
+\end{equation}
+
+\begin{equation} \label{eq:ka}
+    K_a = e^{\frac{-\Delta G^\bigcirc}{RT}}
+\end{equation}
+
+% TODO: fix euler number
+
 \subsection{QSPR Method}
+
+The quantitative structure-property relationship method [] [] uses mainly
+a linear model to describe the relationship between molecular structure and
+a property of a molecule, in our case p$K_a$. In those models, structures are
+presented by descriptors [] that are numerical expressions of molecular
+properties. For example, descriptors can be the number of hydrogen atoms, the 
+ratio between carbon atoms and all atoms in the molecule, or solvent accessible
+surface area.
+
+p$K_a$ correlates well with the polarizability, HOMO energy \cite{Gross2001},
+proton-transfer energy [35],
+partial atomic charges \cite{Citra1999, Gross2002, Kreye2009, Svobodova2011},
+the electrostatic potential of the molecule \cite{Liu2009}, etc.
+Partial atomic charges proved as very promising
+descriptors \cite{Citra1999, Gross2002, Kreye2009, Svobodova2011} for p$K_a$
+prediction.
+
+
