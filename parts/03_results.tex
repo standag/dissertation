@@ -3,4 +3,232 @@
 
 \chapter{Synopsis of the Results}
 
+We published a series of articles about pKa prediction [] where we showed that
+some specific atomic charges correlate with p$K_a$. Based on this, we were able
+to build QSPR models for the prediction of this property. We also compared QM,
+EEM charges, and their models.  In this dissertation, I focused only
+on the last one:
+
+\underline{Geidl S}, Svobodová Vařeková R, Bendová V, Petrusek L, Ionescu C-M,
+Jurka Z, Abagyan R, Koča J: \textbf{How Does the Methodology of 3D Structure
+Preparation Influence the Quality of p$K_a$ Prediction?} \textit{J Chem Inf Model}
+2015, \textbf{55}:1088–1097.
+
+In this article, we utilized different approaches to generate the 3D structures
+of organic molecules. These structures were used for the building of p$K_a$
+prediction models based on charge descriptors. Then we analyzed various
+influences and relationships and found which methodologies for 3D structure
+preparation are applicable for p$K_a$ prediction. 
+
+We examined not only pKa prediction models employing QM charges but also the
+models utilizing EEM charges. An application of EEM charges looked very
+promising. Moreover, EEM charge calculation is significantly faster than
+QM charge calculation. 
+
+However, in parallel, we found one significant limitation of EEM charges -- the
+parameters. It was available a reasonable number of parameter sets, but they
+had only a low coverage.  For example, Bultinc's parameter
+set \cite{Bultinck2002} contains parameters only for these elements: C, F, H, N,
+O. This fact markedly reduced a dataset, which we were able to use for QM
+charges. 
+
+A lack of parameters disallows the usage of EEM charges in many chemoinformatics
+applications. For this reason, in our follow-up work, we focused
+on the development of new and more robust EEM parameters. The first step was to
+develop a new parameterization tool that was easy to use and extendable.
+After the prototype, we carefully prepared a new dataset of molecules, and
+for this dataset, we computed EEM parameters with higher coverage. These new
+parameters were published in a scientific paper:
+
+\underline{Geidl S}, Bouchal T, Raček T, Svobodová Vařeková R, Hejret V,
+Křenek A, Abagyan R, Koča J: \textbf{High-quality and universal empirical atomic
+charges for chemoinformatics applications.} \textit{J Cheminform} 2015,
+\textbf{7}:59.
+
+After some tuning up and extensive research, we released and also published
+the tool for EEM parametrization -- the NEEMP software:
+
+Raček T, Pazúriková J, Svobodová Vařekova R, \underline{Geidl S}, Křenek A,
+Falginella FL, Horský V, Hejret V, Koča J: \textbf{NEEMP: Software
+for validation, accurate calculation and fast parameterization of EEM charges.}
+\textit{J Cheminform} 2016.
+
+%TODO: inclue issue and page for last reference!
+
+Sections~\ref{sec:pka-article}, \ref{sec:param-article}, and
+\ref{sec:neemp-article} contain a summary and \nameref{chapter:papers} full text of
+all these aforementioned articles. I was also involved in other projects, and
+the outcome of it is a list of additional articles and book chapters
+in \nameref{chapter:publications}.
+
+\section{How Does the Methodology of 3D Structure Preparation Influence
+the Quality of pKa Prediction?} \label{sec:pka-article}
+
+From our previous articles [], we know that
+the prediction of p$K_a$ is possible via QSPR models using partial atomic
+charges as descriptors. The article's goal was to discover how the methodology
+of 3D structure preparation influences the quality of pKa prediction.
+We prepared a dataset containing 60 phenols, 82 carboxylic acids, 48 anilines,
+and additional testing 53 phenols for these purposes. We took structures
+from 5 different sources for all these molecules: PubChem, DTP NCI database:
+Balloon, Frog2, OpenBabel, and RDKit software. We used neutral forms of all
+the molecules and dissociated forms of phenols and carboxylic acids, and
+associated forms of anilines. We also optimized these structures with MM
+(Molecular mechanics) and QM. All combination led to 7220 structures for that
+we calculated four different QM, one semiempirical QM, four different EEM
+charges, and Gasteiger-Marselli charges. We created 516 QSPR models for all
+these molecules and charges. The robustness of these models was tested by
+cross-validation and QM charges also by an independent test set of phenols.
+
+We confirmed that QM and EEM charge descriptors could be used for p$K_a$
+prediction. About half of all models have excellent quality with $R2 >= 0.9$.
+We also showed that ab initio and semiempirical charges correlate with p$K_a$
+and their models are very accurate. In EEM, we had models with a little worse
+quality, but empirical charges are calculated much faster, and an application
+in chemoinformatics is much more appropriate. In our models, we were not able
+to use Gasteiger-Marsili charges to get an adequate quality. 
+
+We focused on different types of influence. For classes of the benzene
+derivates (phenols and anilines) was much easier to obtain high-quality models.
+Nevertheless, for aliphatic hydrocarbon derivates (carboxylic acid), it was more
+challenging.
+
+The focus of this article was a comparison of the source of the 3D structure.
+The influence of input structure for models is essential because
+the result -- the quality of QSPR models -- depends on input structures and
+their quality. For example, structures taken from RDKIT generated only by
+distance geometry produced fragile models. On the other hand, the 3D structures
+from the DTP NCI and PubChem databases, formally structures generated by CORINA
+and Omega, exhibited the best performance for all the tested molecular classes
+and charge calculation approaches. Structures generated by Frog2 also performed
+very well. Other 3D structure sources can also be used, but with caution.
+
+We also tried the influence of structure optimization on the quality of QSPR
+models. In most cases, differences between original structures and optimized
+structures were slight. 
+
+In this article, we summed up the best workflow for the fast and accurate
+prediction of pKa. This or similar workflow can also be easily applied to other
+important properties for in silico designed molecules. Flow is about preparing
+3D structures by CORINA or Omega (with no further optimization), calculation of
+EEM charges for these structures, and then the EEM QSPR calculation of p$K_a$.
+
+\subsection{My contribution}
+
+I prepared the input dataset (by extension of published datasets), performed
+all the calculations, participated in the analysis of the results, and wrote
+a part of the manuscript, including all tables and graphics.
+
+\section{High-quality and universal empirical atomic charges for
+chemoinformatics applications} \label{sec:param-article}
+
+The EEM method for charge calculation was published several decades ago.
+Before our study, there were done some improvements of EEM [], parameterizations
+of empirical parameters [], and developments of new parameterization methods [].
+However, there was a problem with the usability of EEM because the available
+parameter sets had a low coverage in chemical space.    
+
+We prepared a set of 4475 distinct small organic, drug-like molecules containing
+these elements: H, C, N, O, F, P, S, Cl, Br, and I, in different functional
+groups. This set was created so that each selected atom type is contained
+in at least 100 molecules. CORINA calculated the 3D structure for all molecules.
+\The next step was the calculation of reference QM charges. We selected
+6 different approaches: B3LYP/6-311G/MPA, B3LYP/6-311G/NPA, B3LYP/6-311G/AIM,
+HF/6-311G/MPA, HF/6-311G/NPA, and HF/6-311G/AIM. EEM parameterization was
+performed for six QM charge calculation approaches, and the whole
+set of prepared molecules was used.
+
+Our new EEM parameters get very high quality -- all Pearson coefficients had
+a value greater or equal to 0.9. We also showed that the used QM approach did
+not prove any difference in the quality of parameters -- B3LYP and HF produced
+comparable results. EEM parameters based on NPA and AIM population analysis are
+slightly better than EEM parameters based on MPA.
+
+ We also calculated coverage of our parameters previously published parameters
+ on four big chemoinformatics databases of drug-like molecules — DrugBank,
+ ChEMBL, PubChem, and ZINC. We found out that their coverage is less than 60\%
+ for most of the previously published parameters.  Our newly produced parameters
+ showed coverage of at least 90\% for these databases. Consistency of coverage
+ points out that this problem is not related to a database but concerns
+ a chemical space of drug-like molecules and their atom types.
+
+For evaluation of quality, we selected 657 approved drugs from the DrugBank
+database. We compared the coefficient of determination, root mean square error
+and found out that our new parameters outperform the previously published
+parameters. Coverage of the old parameters on this small evaluation dataset
+is like coverage on whole databases.
+
+The quality of EEM parameters is also affected by a used QM charge scheme.
+EEM parameters derived from MPA, NPA, and AIM charges showed high quality.
+EEM parameters based on Hirshfeld charges were acceptable, and MK and CHELPG
+charges cannot be used with EEM.  On the other hand, none of the QM theory level
+and basis set combinations showed any problem in the quality of EEM parameters.
+This also confirmed that we used an appropriate selection of reference QM
+charges.
+
+We also evaluated already existing tools for calculating partial atomic charges,
+and all the tools showed some issues. For example, OpenBabel tool is using
+Bult2002_mpa parameter set \cite{Bultinck2002}, but developers extended this
+set about missing atom types with parameters for different atom types. This hack
+increases coverage paid by decreased EEM charges quality for molecules
+containing atom type missing in the original parameter set.  
+
+\subsection{My contribution}
+
+I participated in the study's design, and I cooperated in the preparation of
+the input data (molecules and published EEM parameters) and in QM charge 
+calculation. I performed the analyses and the interpretation of the data.
+
+\section{NEEMP: software for validation, accurate calculation, and fast
+parameterization of EEM charges} \label{sec:neemp-article}
+
+This article describes NEEMP -- a software tool with three main
+functionalities -- parametrization of EEM charges from reference QM charges,
+validation of EEM parameter sets (including quality and coverage calculation),
+and EEM charge calculation.
+
+NEEMP provides two different parametrization approaches:
+
+\begin{itemize}
+    \item linear regression (LE),
+    \item differential evolution with the local minimization (DE-MIN) approach. 
+\end{itemize}
+
+A combination of a global optimization method with a local optimization method
+improves EEM parameterization. This combined approach provides a more robust
+methodology than LR. Therefore it is applicable even for heterogeneous training
+sets. Specifically, we combined differential evolution (DE) with the local
+minimization method NEWUOA [47]. Quality criteria for evaluation of each 
+iteration of the parametrization process (both LR and DE-MIN) can be set up to
+coefficient of determination ($R^2$) or the root mean square error (RMSE).
+
+The validation mode of NEEMP calculates quality metrics, coverage, and a
+graphical representation of EEM charge correlation with reference QM charges.
+
+The calculation mode of NEEMP provides a calculation of EEM charges using an
+input parameter set.
+
+The article also presents two case studies to show the functionality and
+performance of NEEMP – a parametrization and a validation case study.
+
+The parametrization case study targets a comparison of the parameterization
+method (LR vs. DE-MIN) and metrics for model validation ($R^2$ vs. RMSE).
+The case study proved that LR (with both metrics) is suitable for smaller
+and homogeneous datasets. DE-MIN (with RMSD metric) is a more robust approach
+that can also handle the parametrization of larger and more heterogeneous
+datasets. The validation case study provided similar findings to the previous
+article –low coverage of the older parameter sets. Also, a quality validation
+agrees with the previous article for smaller datasets with molecules comprised
+of C, H, N, and O. On the other hand, the case study uncovered an interesting
+problem: in larger and more heterogeneous datasets - the parameters set from
+our previous article proved accuracy problems with some atom types. Using NEEMP,
+we computed parameter sets, which are also applicable for such problematic
+datasets.
+
+\subsection{My contribution}
+
+I prototyped the DE-Min approach and designed some new NEEMP features, such as
+the usage of RMSE instead of R2. I also implemented a preparation of validion
+reports.
+
 \chapter{Follow-up work and future plans}
