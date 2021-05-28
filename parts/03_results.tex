@@ -81,7 +81,7 @@ these molecules and charges. The robustness of these models was tested by
 cross-validation and QM charges also by an independent test set of phenols.
 
 We confirmed that QM and EEM charge descriptors could be used for p$K_a$
-prediction. About half of all models have excellent quality with $R2 >= 0.9$.
+prediction. About half of all models have excellent quality with $R^2 >= 0.9$.
 We also showed that ab initio and semiempirical charges correlate with p$K_a$
 and their models are very accurate. In EEM, we had models with a little worse
 quality, but empirical charges are calculated much faster, and an application
@@ -132,7 +132,7 @@ We prepared a set of 4475 distinct small organic, drug-like molecules containing
 these elements: H, C, N, O, F, P, S, Cl, Br, and I, in different functional
 groups. This set was created so that each selected atom type is contained
 in at least 100 molecules. CORINA calculated the 3D structure for all molecules.
-\The next step was the calculation of reference QM charges. We selected
+The next step was the calculation of reference QM charges. We selected
 6 different approaches: B3LYP/6-311G/MPA, B3LYP/6-311G/NPA, B3LYP/6-311G/AIM,
 HF/6-311G/MPA, HF/6-311G/NPA, and HF/6-311G/AIM. EEM parameterization was
 performed for six QM charge calculation approaches, and the whole
@@ -168,7 +168,7 @@ charges.
 
 We also evaluated already existing tools for calculating partial atomic charges,
 and all the tools showed some issues. For example, OpenBabel tool is using
-Bult2002_mpa parameter set \cite{Bultinck2002}, but developers extended this
+Bult2002\_mpa parameter set \cite{Bultinck2002}, but developers extended this
 set about missing atom types with parameters for different atom types. This hack
 increases coverage paid by decreased EEM charges quality for molecules
 containing atom type missing in the original parameter set.  
@@ -220,7 +220,7 @@ datasets. The validation case study provided similar findings to the previous
 article –low coverage of the older parameter sets. Also, a quality validation
 agrees with the previous article for smaller datasets with molecules comprised
 of C, H, N, and O. On the other hand, the case study uncovered an interesting
-problem: in larger and more heterogeneous datasets - the parameters set from
+problem: in larger and more heterogeneous datasets -- the parameters set from
 our previous article proved accuracy problems with some atom types. Using NEEMP,
 we computed parameter sets, which are also applicable for such problematic
 datasets.
@@ -228,7 +228,28 @@ datasets.
 \subsection{My contribution}
 
 I prototyped the DE-Min approach and designed some new NEEMP features, such as
-the usage of RMSE instead of R2. I also implemented a preparation of validion
+the usage of RMSE instead of $R^2$. I also implemented a preparation of validion
 reports.
 
 \chapter{Follow-up work and future plans}
+
+From these results, we were able to create a tool for the calculation
+of charge descriptors -- ChrgDescCalc.py [Hejret2016], and we also
+successfully prepared the universal model for p$K_a$ prediction [Hejret2017].
+
+The EEM parameters computed in [High-quality and universal ...] and [NEEMP]
+became a part of AtomicChargeCalculator [] and also its successor 
+AtomicChargeCalculator II [].
+
+A parameterization approach from an article [NEEMP], was further extended
+by my coworker J. Pazúriková in an article [Pazúriková, J., Křenek, A. and
+Matyska, L., 2016. Guided Optimization Method for Fast and Accurate Atomic
+Charges Computation]. A further extension of the parameterization approach
+(optGM) was done by my colleague T. Raček and it allowed a parameterization
+of the majority of empirical charge calculation methods (not only EEM).
+An article describing optGM is now in a review process.
+
+In the future, the development of an empirical charge calculation approach
+for proteins and a parameter set fully covering Protein Data Bank is
+in development.
+
