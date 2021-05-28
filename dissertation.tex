@@ -51,6 +51,17 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
+% appendix
+%\newcommand{\setappendix}{Appendix~\thechapter:~}
+%\newcommand{\setchapter}{\thechapter~}
+%\titleformat{\chapter}{\bfseries\LARGE}{%
+%  \ifnum\pdfstrcmp{\@currenvir}{appendices}=0
+%    \setappendix
+%  \else
+%    \setchapter
+%  \fi}{0em}{}
+%\usepackage[titletoc]{appendix}
+
 % newcommands
 \newcommand{\AAA}{\textup\AA{ }}
 \newcommand{\pka}{p$K_\mathrm{a}$ }
@@ -122,6 +133,7 @@
   \begin{center}\vspace*{3mm}
     {\fontsize{20pt}{28pt}\selectfont{\textbf{MASARYK UNIVERSITY}}}\\[2mm]
     {\fontsize{19pt}{28pt}\selectfont{\textbf{Faculty of Science}}}\\[1mm] %textsc
+    {\fontsize{10pt}{28pt}\selectfont{\textbf{National Centre for Biomolecular Research}}}\\[1mm] %textsc
   \end{center}
 \end{minipage}\hspace{2mm}
 \begin{minipage}{28mm}
@@ -133,32 +145,28 @@
  \vspace{8cm}
 
   \begin{center}
-      {\fontsize{28pt}{26pt}\selectfont{Dissertation}}\\
       \vspace{1ex}
-      %\noindent\rule[0.5ex]{\linewidth}{1pt} \\
       \vspace{6ex}
       {\fontsize{24pt}{26pt}\selectfont{
           Partial Atomic Charges and Their Chemoinformatics Application
-      }}
+      }} \\
+      \vspace{1ex}
+      {\fontsize{16pt}{26pt}\selectfont{Dissertation}} \\
+      \vspace{1ex}
+      {\fontsize{20pt}{26pt}\selectfont{Stanislav Geidl}} \\
   \end{center}
 
 \vspace*{9mm}
 
 \begin{center}
-  Author:
-
-  RNDr. Stanislav Geidl
-
-  Supervisor: 
-
-  prof. RNDr. Jaroslav Koča, DrSc.
+  Supervisor: prof. RNDr. Jaroslav Koča, DrSc.
 \end{center}
 
 \vfill
 
 
 \begin{center}
-{\fontsize{20pt}{28pt}\selectfont{Brno 2021} \hfill \selectfont{Stanislav Geidl}}
+    {\fontsize{20pt}{28pt}\selectfont{Brno 2021}} 
 \end{center}
 \normalsize
 \clearpage
@@ -168,52 +176,63 @@
 %\pagestyle{empty}
 \begin{center}
 \vspace*{10cm}
-To my grandma.
+\textsc{To my grandma.}
 \end{center}
 \normalsize
 \clearpage
 
 \vfill
 \section*{Bibliografický záznam}
+\def\arraystretch{1.5}
 \begin{tabular}{ ll } 
-  Autor:            & RNDr. Stanislav Geidl \\
-                    & Přírodovědecká fafulta, Masarykova univerzita \\
-                    & Národní centrum pro výzkum biomolekul \\
-  Název práce:      & Parciální atomové náboje a jejich aplikace v chemoinformatice \\ 
-  Studijní program: & Biochemie \\
-  Studijní obor:    & Biomolekulární chemie a bioinformatika \\
-  Vedoucí práce:    & prof. RNDr. Jaroslav Koča, DrSc. \\
-  Konzultant práce: & doc. RNDr. Radka Svobodová Vařeková, Ph.D. \\
-  Akademický rok:   & 2020/2021 \\
-  Počet stran:      & \\
-  Klíčová slova:    & \\
+  \textbf{Autor:}            & RNDr. Stanislav Geidl \\
+                             & Přírodovědecká fafulta, Masarykova univerzita \\
+                             & Národní centrum pro výzkum biomolekul \\
+  \textbf{Název práce:}      & Parciální atomové náboje a jejich aplikace v chemoinformatice \\ 
+  \textbf{Studijní program:} & Biomolekulární chemie a bioinformatika \\
+  \textbf{Vedoucí práce:}    & prof. RNDr. Jaroslav Koča, DrSc. \\
+  \textbf{Konzultant práce:} & doc. RNDr. Radka Svobodová Vařeková, Ph.D. \\
+  \textbf{Akademický rok:}   & 2020/2021 \\
+  \textbf{Počet stran:}      & \\
+  \textbf{Klíčová slova:}    & \\
 \end{tabular}
+\normalsize
 \clearpage
 
 \vfill
 \section*{Bibliographic Entry}
+\def\arraystretch{1.5}
 \begin{tabular}{ ll } 
-  Author:                 & RNDr. Stanislav Geidl \\
-                          & Faculty of Science, Masaryk University \\
-                          & National Centre for Biomolecular Research \\
-  Title of Thesis:        & Partial Atomic Charges and Their Chemoinformatics Application \\ 
-  Degree Programme:       & Biochemistry \\
-  Studijní obor:          & Biomolecular Chemistry and Bioinformatics \\
-  Supervisor:             & prof. RNDr. Jaroslav Koča, DrSc. \\
-  Supervisor specialist:  & doc. RNDr. Radka Svobodová Vařeková, Ph.D. \\
-  Academic Year:          & 2020/2021 \\
-  Number of Pages:        & \\
-  Keywords:               & \\
+  \textbf{Author:}                & RNDr. Stanislav Geidl \\
+                                  & Faculty of Science, Masaryk University \\
+                                  & National Centre for Biomolecular Research \\
+  \textbf{Title of Thesis:}       & Partial Atomic Charges and Their Chemoinformatics Application \\ 
+  \textbf{Degree Programme:}      & Biomolecular chemistry and bioinformatics \\
+  \textbf{Supervisor:}            & prof. RNDr. Jaroslav Koča, DrSc. \\
+  \textbf{Supervisor specialist:} & doc. RNDr. Radka Svobodová Vařeková, Ph.D. \\
+  \textbf{Academic Year:}         & 2020/2021 \\
+  \textbf{Number of Pages:}       & \\
+  \textbf{Keywords:}              & \\
 \end{tabular}
 \clearpage
 
 \pagestyle{plain}
+
+\vspace*{18cm}
+\section*{Abstract}
+...
+\clearpage
+
+\vspace*{18cm}
+\section*{Abstrakt}
+...
+\clearpage
+
 \vspace*{18cm}
 \section*{Acknowledgements}
-
-
-
+...
 \clearpage
+
 \vspace*{18cm}
 \section*{Declaration}
 I hereby declare that this disertation thesis is my original authorial work,
@@ -250,7 +269,8 @@ Brno, xxth xxxxxxx 2021 ............................. Stanislav Geidl
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{-1}
 
-\part*{Appendix}
+\part{Appendix}
+\appendix
 
 \addcontentsline{toc}{chapter}{Bibliography}
 {\footnotesize
