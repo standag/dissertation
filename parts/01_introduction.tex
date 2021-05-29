@@ -20,7 +20,7 @@ have provided many key results in basic and applied research (e.g.
 
 One fascinating and beneficial field utilizing and processing newly available
 data about small molecules (i.e., drug-like compounds) is chemoinformatics.
-This discipline offers methodologies for comparing molecular similarity,
+This discipline offers me\-tho\-do\-lo\-gies for comparing molecular similarity,
 molecular database search, virtual screening, and the prediction of molecules'
 properties and activities. This prediction is based on the idea that molecular
 structures' similarity has a consequence -- a similarity in molecular
@@ -49,7 +49,8 @@ prediction are therefore currently intensively examined.
 
 For this reason, I also focused on the chemoinformatics way of p$K_a$
 prediction in my work. Very promising descriptors for p$K_a$ prediction are
-partial atomic charges [] because they hold information about the distribution
+partial atomic charges \cite{Svobodova2011, Svobodova2013} because they hold
+information about the distribution
 of electron density within the molecule. Specifically, electron densities on
 atoms close to the dissociating hydrogen provide a clue about its dissociation
 ability. The most common and accurate method for calculating partial atomic
@@ -60,25 +61,26 @@ equations, which are called basis sets). QM outputs electron distribution
 in orbitals and this distribution can be divided into individual atoms using
 several charge calculation schemes (e.g., MPA, NPA, AIM, Hirshfeld, MK, etc.).
 Therefore, the correlation between p$K_a$ and relevant atomic charges
-calculated by different QM approaches has been analyzed []. I also focused
-on this file in my bachelor thesis, developed a workflow for calculation
-of p$K_a$ using QM partial atomic charges and examined, which types of QM are
-the most suitable [].
+calculated by different QM approaches has been analyzed \cite{Svobodova2011}.
+I also focused on this file in my bachelor thesis \cite{Geidl2011}, developed
+a workflow for calculation of p$K_a$ using QM partial atomic charges and
+examined, which types of QM are the most suitable.
 
 QM charges are accurate, but their calculation is very time-consuming. A faster
 Alternative to QM charges is empirical charge calculation approaches.
 Furthermore, if we would like to apply chemoinformatics p$K_a$ prediction models
 practically -- for example, in pre-screening large sets of drug candidates -- we
-need a fast approach. Therefore, in my master thesis, I developed a p$K_a$
-prediction workflow based on charges (including Electronegativity Equalization
-Method).
+need a fast approach. Therefore, in my master thesis \cite{Geidl2013},
+I developed a p$K_a$ prediction workflow based on charges (including
+Electronegativity Equalization Method).
 
 However, several pieces of the puzzle were still missing. For example, the
-developed p$K_a$ prediction workflows [] were strongly dependent on 3D structure
-source, and also, the quality of available EEM charges was low.
+developed p$K_a$ prediction workflows \cite{Svobodova2013} were strongly
+dependent on 3D structure source, and also, the quality of available EEM charges
+was low.
 
 Therefore, my dissertation's goal was to develop a workflow that predicts p$K_a$
-for molecules not synthesized yet and without available experimental 3D
+for mo\-le\-cu\-les not synthesized yet and without available experimental 3D
 structures.
 
 Specifically, the thesis examined how to improve the process of p$K_a$
