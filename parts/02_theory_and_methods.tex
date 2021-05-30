@@ -198,12 +198,12 @@ $A_i$, $B_i$ and $\kappa$ are empirical parameters.
 These principles can be summed up to a system of equations with N + 1 unknowns
 (where $q_1$, $q_2$, ... , $q_N$ and $\bar{\chi}$):
 
-\begin{equation}
+\begin{equation} \label{eq:eem}
     \left(
     \begin{array}{ccccc}
         B_1                    & \frac{\kappa}{R_{1,2}} & \cdots & \frac{\kappa}{R_{1,N}} & -1     \\
         \frac{\kappa}{R_{2,1}} & B_2                    & \cdots & \frac{\kappa}{R_{2,N}} & -1     \\
-        \vdots                 & \ddots                 & \vdots & \vdots                 & \vdots \\
+        \vdots                 & \vdots                 & \ddots & \vdots                 & \vdots \\
         \frac{\kappa}{R_{N,1}} & \frac{\kappa}{R_{N,2}} & \cdots & B_N                    & -1     \\ 
         1                      & 1                      & 1      & 1                      & 0      \\  
     \end{array}
@@ -230,7 +230,7 @@ These principles can be summed up to a system of equations with N + 1 unknowns
 The first values of parameters $A_i$ and $B_i$ were modifications
 of experimental hardness and electronegativity \cite{Mortier1986}. $\kappa$ was
 equal to 1. Nowadays, these parameters are calculated from the QM
-charges \cite{Mortier1986, Baekelandt1991, Bultinck2002, Bultinck2004,
+charges \cite{Baekelandt1991, Bultinck2002, Bultinck2004,
 Chaves2006, Svobodova2007, Jirouskova2009, Ouyang2009}.
 Therefore, EEM charges were correlated with the QM
 charge calculated with the same method used for parametrization.
@@ -297,7 +297,7 @@ and $N_{tot}$ is the total number of molecules in a dataset.
 
 For the parameterization of EEM charges, a lot of different methods have been
 introduced. We can summarize it into two groups: one group contains
-a method that analytically solves equation x -- linear
+a method that analytically solves equation \cite{eq:eem} -- linear
 regression \cite{Svobodova2007, Jirouskova2009} and the
 second group contains optimization methods \cite{Ouyang2009}  such as
 Accelerated Random Search, Particle Swarm Optimization, and Differential
