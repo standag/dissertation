@@ -218,14 +218,66 @@
 
 \pagestyle{plain}
 
-\vspace*{18cm}
-\section*{Abstract}
-...
+\vspace*{10cm}
+\section*{Abstrakt}
+Chemoinformatické přístupy pro výpočet fyzikálních a chemických vlastností
+organických molekul, speciálně pak molekul dosud nesyntetizovaných, jsou velmi
+užitečné v rámci procesu vývoje léčiv a v dalších oblastech moderních přírodních
+věd. Jednou z velmi důležitých vlastností organických molekul je disociační
+konstanta (p$K_a$). p$K_a$ lze úspěšně predikovat pomocí chemoinformatických
+modelů založených na parciálních atomových nábojích. Tyto modely vyžadují
+molekulární 3D strukturu, kterou však lze připravit mnoha různými způsoby.
+
+Prvním tématem, kterým jsem se v rámci své práce zabýval, je právě vliv zdroje
+3D struktury molekul na přesnost predikce p$K_a$. Zjistil jsem, že výběr zdroje
+3D struktury je klíčový pro úspěšnou predikci p$K_a$, přičemž 3D struktury
+z databází DTP NCI a PubChem je jevily jako nejvhodnější. Z této analýzy byla
+rovněž patrná nutnost kvalitních a rychle vypočítatelných parciálních atomových
+nábojů, sloužících jako vstupy pro predikci p$K_a$. Uvedená oblast se stala
+druhým tématem mé práce. Konkrétně jsem se zaměřil na parametrizaci metody
+Electronegativity Equalization Method (EEM), sloužící pro rychlý výpočet
+parciálních atomových nábojů. Výsledkem mé práce byly EEM parametry,
+poskytujícící kvalitní náboje pro léčiva a jim podobné organické molekuly.
+Výsledkem mé práce byly EEM parametry, poskytující vysoce kvalitní náboje pro
+léčiva a jim podobné organické molekuly. Při přípravě těchto parametrů jsem si
+rovněž uvědomil nutnost mít k dispozici softwarový nástroj pro výpočet nábojů a
+parametrizaci nábojových metod. Tato problematika se stala třetím tématem mé
+práce -- spolupracoval jsem na vývoji software NEEMP, který slouží
+k parametrizaci EEM, validaci EEM parametrů a výpočtu nábojů pomocí metody EEM.
+
+Celkově má práce poskytuje metodiky a nástroje pro stavbu kompletního workflow,
+sloužícího pro výpočet i u dosud nesyntetizovaných molekul. Toto workflow
+zahrnuje získání 3D struktury molekul, výpočet jejich parciálních atomových
+nábojů metodou EEM a aplikace nábojů pro predikci p$K_a$.
 \clearpage
 
-\vspace*{18cm}
-\section*{Abstrakt}
-...
+\vspace*{11cm}
+\section*{Abstract}
+Chemoinformatic approaches for predicting physicochemical properties, especially
+in the case of unsynthesized molecules, are beneficial in the drug design
+process and other modern life science fields. One of the most important
+properties of organic molecules is the dissociation constant (p$K_a$). p$K_a$ is
+successfully predictable by chemoinformatics models based on partial atomic
+charges -- these models require a molecules’ 3D structure that can be obtained
+using different approaches. The first topic of my work is to analyze
+the influence of 3D structure sources on the quality of pKa prediction. I found
+out that the correct source of 3D structure is crucial for p$K_a$ prediction
+while structures from databases DTP NCI and PubChem appear most suitable. This
+work shows a need for quality and quickly calculated charges used as input for
+p$K_a$ prediction. This field became my second topic. Specifically, I focused
+on Electronegativity Equalization Method (EEM) for quick partial atomic charges
+calculation. The result of my work was the EEM parameters, which provide
+high-quality charges for drug-like molecules. During EEM parameters preparation,
+I realized a need to have a tool for partial charge calculation and
+parametrization. This problem became my third topic -- I cooperated
+on the development of NEEMP software that can parametrize EEM, validate EEM
+parameters and calculate charges via EEM method.
+
+Overall, my work provides a methodology and tools for building the whole
+workflow used for p$K_a$ prediction, which can be used for unsynthesized
+molecules. This workflow contains obtaining 3D structures of molecules,
+partial atomic charges calculation, and pKa prediction.
+
 \clearpage
 
 \vspace*{18cm}
@@ -239,8 +291,11 @@ I hereby declare that this disertation thesis is my original authorial work,
 which I have worked on alone. All sources, references and literature used or
 excerpted during the elaboration of this work are properly cited and listed
 in a complete reference with regard to the source.
-
-Brno, xxth xxxxxxx 2021 ............................. Stanislav Geidl
+\\
+\\
+Brno, xxth June 2021
+\hspace{10cm}............................. \\
+\hspace{12cm}Stanislav Geidl \\
 
 %TODO check text and format it
 
