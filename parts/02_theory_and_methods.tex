@@ -19,7 +19,7 @@ in reality. For some applications, there can even be an assembly of
 these 3D structures.
 
 In chemoinformatics, two-dimensional structures are often used, but the
-three-dimensional structure can often bring new information into the
+three-di\-men\-sio\-nal structure can often bring new information into the
 \textit{in silico} calculations or models. On the other hand, this 3D structure
 can be obtained experimentally for a limited number of small molecules. What
 with other molecules, including those which were not synthesized yet?
@@ -29,21 +29,21 @@ with other molecules, including those which were not synthesized yet?
 We apply more computationally efficient methods for 3D structure computation
 because we use them as input for high-throughput methods. For this reason, many
 resources were devoted to the development of fast and accurate 3D structure
-prediction methods \cite{Sadowski2003}. These can be classified into the following
-groups []: rule-based and data-based, fragment-based, numerical methods, and
+prediction methods \cite{Sadowski2008}. These can be classified into the following
+groups \cite{Sadowski2008}: rule-based and data-based, fragment-based, numerical methods, and
 conformational analysis. These rule-based and data-based, fragment-based
 methods are partially overlying.
 
 \subsection{Rule-Based and Data-Based Methods}
 
-These methods [] use chemical knowledge of geometric and energetic rules known
+These methods use chemical knowledge of geometric and energetic rules known
 from experiments and theoretical calculations. In these methods, we use rules
 explicitly to describe, e.g., bond lengths and angles; we use data implicitly
 to describe, e.g., ring conformation.
 
 \subsection{Fragment-Based Method}
 
-The fragment-based method [] is the incremental method using rules in the first
+The fragment-based method is the incremental method using rules in the first
 step to fragment a structure into parts. According to the following rules,
 the parts are assembled by linking fragment templates from a library
 (database). Predicted structures are created from the most similar and largest
@@ -51,7 +51,7 @@ fragments in a database as possible.
 
 \subsection{Numerical Method}
 
-These numerical methods [] consist of three methods: molecular mechanics
+These numerical methods consist of three methods: molecular mechanics
 (MM), quantum mechanics, and distance geometry (DG). Distance geometry is
 a great tool to prepare a reasonable initial structure, which is very close
 to some low-energy conformation. For this structure, we can use
@@ -59,11 +59,11 @@ the optimization process from MM or/and QM.
 
 \subsection{Conformational Analysis}
 
-This method [] generates a set of conformations for one molecule using
+This method generates a set of conformations for one molecule using
 different approaches - genetic algorithms, systematic methods, random
 techniques, Monte Carlo or MD simulation. The one or more different structures
 are selected based on criteria such as the number of conformers, minimum
-RMSD [], only conformations with the lowest MM energy (low-energy conformers).
+RMSD, only conformations with the lowest MM energy (low-energy conformers).
 
 \chapter{Partial Atomic Charges}
 
@@ -89,7 +89,7 @@ approaches for the calculation of partial atomic charges were developed.
 
 These methods use a wave function as a starting point and then apply subsequent
 population analysis, charge calculation scheme, or fit to some physical
-observation \cite{spark}. 
+observation \cite{Cramer2005}. 
 
 Mulliken population analysis (MPA) \cite{Mulliken1955, Mulliken1955a} simply
 calculates a charge of an atom as a sum of an electron density from its
@@ -107,7 +107,7 @@ charges. Bader and his coworkers \cite{Bader1985, Bader1991} defined an atomic
 volume that is used for charge calculation. Other well-known approaches are
 electrostatic potential fitting methods (ESP) like CHELPG \cite{Breneman1990}
 or MK (Merz-Singh-Kollman) \cite{Besler1990} and their extension -- RESP
-methods \cite{Woods2015}.
+methods \cite{Bayly1992}.
 
 Cramer and at \cite{Marenich2009} also developed semiempirical methods -- charge
 model 5 (CM5), which extends Hirshfeld population analysis by empirical
@@ -119,19 +119,17 @@ Empirical approaches use only empirical parameters, and some of these can
 calculate charges from the 3D structure or only from the topology (2D structure)
 of a molecule. Therefore, they are distinctly faster than QM approaches. 
 
-One of the first empirical methods developed, CHARGE [67], performs a breakdown
+One of the first empirical methods developed, CHARGE \cite{Abraham2004}, performs a breakdown
 of the charge transmission by polar atoms into single-bond, double-bond, and 
 triple-bond additive contributions. Other empirical methods have been developed
 on the electronegativity equalization principle. One group of these empirical
 approaches are using the Laplacian matrix formalism and the product is
 a redistribution of electronegativity: Gasteiger-Marsili (PEOE, partial
-equalization of orbital electronegativity) \cite{Cho2001, Oliferenko2006},
-GDAC (geometry-dependent atomic charge) \cite{Shulga2008}, KCM (Kirchhoff charge
-model) \cite{Rappe1991}, DENR (dynamic electronegativity
-relaxation) \cite{Nistor2006} or TSEF (topologically symmetric energy
-function) \cite{Nistor2006}.
-
-%TODO: check that same ref for 2 methods
+equalization of orbital electronegativity) \cite{Gasteiger1980},
+GDAC (geometry-dependent atomic charge) \cite{Cho2001}, KCM (Kirchhoff charge
+model) \cite{Oliferenko2006}, DENR (dynamic electronegativity
+relaxation) \cite{Shulga2008} or TSEF (topologically symmetric energy
+function) \cite{Shulga2008}.
 
 The second group of approaches applies the full equalization of orbital
 electronegativity. For example, this group contains EEM (electronegativity
@@ -160,11 +158,12 @@ applicable charges for some of the applications.
 
 EEM (electronegativity equalization method) \cite{Mortier1986} is one of the
 most popular empirical charge calculation methods and was developed more than
-twenty years ago. This method's new parameterizations [D17, D56–D62] and
-extension [D59, D63, D64] are still under development. An advantage of EEM
+twenty years ago. This method's new parameterizations \cite{Mortier1986, Baekelandt1991, 
+Bultinck2002, Bultinck2004, Chaves2006, Svobodova2007, Jirouskova2009, Ouyang2009} and
+extension \cite{Chaves2006, Yang1997} are still under development. An advantage of EEM
 calculation is that it considers the influence of the molecule's conformation
 on the atomic charges. For this reason, EEM charges are often used
-in predictive models as chemoinformatics regressors (descriptors) [D65].
+in predictive models as chemoinformatics regressors (descriptors) \cite{Todoschini2009}.
 
 EEM is based on three principles: 
 
@@ -231,16 +230,18 @@ These principles can be summed up to a system of equations with N + 1 unknowns
 The first values of parameters $A_i$ and $B_i$ were modifications
 of experimental hardness and electronegativity \cite{Mortier1986}. $\kappa$ was
 equal to 1. Nowadays, these parameters are calculated from the QM
-charges [D17, D56–D62]. Therefore, EEM charges were correlated with the QM
+charges \cite{Mortier1986, Baekelandt1991, Bultinck2002, Bultinck2004,
+Chaves2006, Svobodova2007, Jirouskova2009, Ouyang2009}.
+Therefore, EEM charges were correlated with the QM
 charge calculated with the same method used for parametrization.
 
 \section{Quality and Usability of EEM parameters}
 
 The quality of EEM parameters describes how the empirical charges computed
 using these EEM parameters correspond with QM charges used for EEM
-parameterization. Three main characteristics can describe the quality of
-EEM parameters -- the coefficient of determination [D69, D70] root mean
-square error (RMSE) [D69, D70] and average absolute error ($\bar{\Delta}$).
+parameterization. Three main characteristics (statistics \cite{Urdan2011, Verzani2018})
+can describe the quality of EEM parameters -- the coefficient of determination
+root mean square error (RMSE) and average absolute error ($\bar{\Delta}$).
 
 \textbf{The coefficient of determination $R^2$} is the squared value of the
 Pearson coefficient (equation \ref{eq:coef_det}). This value describes the
@@ -290,13 +291,14 @@ this coverage depends on the representation of atom types in EEM parameters.
     \mathrm{coverage} = \frac{N_{pos}}{N_{tot}}
 \end{equation}
 where $N_{pos}$ is the number of molecules able calculated by EEM parameters
-and $N_tot$ is the total number of molecules in a dataset.
+and $N_{tot}$ is the total number of molecules in a dataset.
 
 \section{EEM Parametrization}
 
 For the parameterization of EEM charges, a lot of different methods have been
-introduced []. We can summarize it into two groups: one group contains
-a method that analytically solves equation x -- linear regression [] and the
+introduced. We can summarize it into two groups: one group contains
+a method that analytically solves equation x -- linear
+regression \cite{Svobodova2007, Jirouskova2009} and the
 second group contains optimization methods \cite{Ouyang2009}  such as
 Accelerated Random Search, Particle Swarm Optimization, and Differential
 Evolution algorithms. Both of these groups need input -- a set of molecules
@@ -306,13 +308,14 @@ detail below:
 
 \textbf{The linear regression (LR)} method is based on these two equations:
 
-\begin{equation}
+\begin{equation} \label{eq:eem1}
     A_i + B_i \cdot x = y
 \end{equation}
 
-\begin{equation}
+\begin{equation} \label{eq:eem2}
     \begin{array}{cc}
     x =& q_i \\
+    \vspace{3mm}
     y =& \chi_i - \kappa \sum^N_{j=1 \: i\neq{j}} \frac{q_j}{R_{i,j}} \\
     \end{array}
 \end{equation}
@@ -333,7 +336,7 @@ to other optimization methods -- iteratively optimize parameters to improve
 the final solution. Parameters of function are set up randomly, mutated, and
 evaluated until there is no best solution.
 
-\chapter{Acid Dissociation COnstant Prediction}
+\chapter{Acid Dissociation Constant Prediction}
 
 \section{Motivation}
 
@@ -358,7 +361,7 @@ the logarithm of a reaction rate constant -- the Hammett and Taft equations.
 An advantage of this method is a simple, straightforward, and quick calculation,
 but on the other hand, we need substituent and reaction parameters.
 This method is still used in the programs ACD/pKa \cite{acd},
-EPIK \cite{Shelley2007}, and SPARC \cite{spark}.
+EPIK \cite{Shelley2008}, and SPARC \cite{Hillal1995}.
 
 \subsection{Database Methods}
 
@@ -388,27 +391,26 @@ chemical software package \cite{jaguar}.
 \end{equation}
 
 \begin{equation} \label{eq:ka}
-    K_a = e^{\frac{-\Delta G^\bigcirc}{RT}}
+    K_a = e^{\frac{-\Delta G^\circ}{RT}}
 \end{equation}
-
-% TODO: fix euler number
 
 \subsection{QSPR Method}
 
-The quantitative structure-property relationship method [] [] uses mainly
+The quantitative structure-property relationship method \cite{Dixon1993,
+Zhang2006, Jelfs2007} uses mainly
 a linear model to describe the relationship between molecular structure and
 a property of a molecule, in our case p$K_a$. In those models, structures are
-presented by descriptors [] that are numerical expressions of molecular
+presented by descriptors \cite{Todoschini2009} that are numerical expressions of molecular
 properties. For example, descriptors can be the number of hydrogen atoms, the 
 ratio between carbon atoms and all atoms in the molecule, or solvent accessible
 surface area.
 
 p$K_a$ correlates well with the polarizability, HOMO energy \cite{Gross2001},
-proton-transfer energy [35],
-partial atomic charges \cite{Citra1999, Gross2002, Kreye2009, Svobodova2011},
+proton-transfer energy \cite{Gross2001},
+partial atomic charges \cite{Citra1999, Gross2002, Kreye2009, Svobodova2011, Svobodova2013},
 the electrostatic potential of the molecule \cite{Liu2009}, etc.
 Partial atomic charges proved as very promising
-descriptors \cite{Citra1999, Gross2002, Kreye2009, Svobodova2011} for p$K_a$
+descriptors \cite{Citra1999, Gross2002, Kreye2009, Svobodova2011, Svobodova2013} for p$K_a$
 prediction.
 
 
