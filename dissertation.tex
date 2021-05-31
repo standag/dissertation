@@ -93,20 +93,11 @@
 
 
 % booklet page
-\changetext{}{11.6mm}{}{}{}
-\begin{adjustwidth}{-12mm}{}
-%\vspace*{-2cm}
-\hspace{2mm}
-\begin{minipage}{170mm}
   \begin{center}\vspace*{3mm}
     {\fontsize{28pt}{28pt}\selectfont{\textbf{MASARYK UNIVERSITY}}}\\[2mm]
     {\fontsize{26pt}{28pt}\selectfont{\textbf{Faculty of Science}}}\\[1mm] %textsc
   \end{center}
-\end{minipage}\hspace{2mm}
-\end{adjustwidth}
-\changetext{}{-11.6mm}{}{}{}
-
- \vspace{8cm}
+ \vspace{6cm}
 
   \begin{center}
       {\fontsize{28pt}{26pt}\selectfont{Dissertation}}\\
@@ -122,44 +113,31 @@
 \end{center}
 \clearpage
 
-\changetext{}{11.6mm}{}{}{}
-\begin{adjustwidth}{-12mm}{}
-%\vspace*{-2cm}
- \hspace{12mm}
-\begin{minipage}{28mm}
-  \includegraphics[width=28mm]{MUNI_(black)}
-\end{minipage}\hspace{2mm}
-\begin{minipage}{90mm}
   \begin{center}\vspace*{3mm}
-    {\fontsize{20pt}{28pt}\selectfont{\textbf{MASARYK UNIVERSITY}}}\\[2mm]
-    {\fontsize{19pt}{28pt}\selectfont{\textbf{Faculty of Science}}}\\[1mm] %textsc
-    {\fontsize{10pt}{28pt}\selectfont{\textbf{National Centre for Biomolecular Research}}}\\[1mm] %textsc
+  %\includegraphics[width=60mm]{MUNI_(black)} \\
+    {\fontsize{28pt}{28pt}\selectfont{\textbf{MASARYK UNIVERSITY}}}\\[2mm]
+    {\fontsize{26pt}{28pt}\selectfont{\textbf{Faculty of Science}}}\\[1mm] %textsc
+    {\fontsize{18pt}{28pt}\selectfont{\textbf{National Centre for Biomolecular Research}}}\\[1mm] %textsc
   \end{center}
-\end{minipage}\hspace{2mm}
-\begin{minipage}{28mm}
-  \includegraphics[width=28mm]{SCI_(black)}
-\end{minipage}
-\end{adjustwidth}
-\changetext{}{-11.6mm}{}{}{}
 
- \vspace{8cm}
+ \vspace{3cm}
 
   \begin{center}
       \vspace{1ex}
       \vspace{6ex}
-      {\fontsize{24pt}{26pt}\selectfont{
+      {\fontsize{30pt}{26pt}\selectfont{
           Partial Atomic Charges and Their Chemoinformatics Application
       }} \\
-      \vspace{1ex}
-      {\fontsize{16pt}{26pt}\selectfont{Dissertation}} \\
-      \vspace{1ex}
-      {\fontsize{20pt}{26pt}\selectfont{Stanislav Geidl}} \\
+      \vspace{1cm}
+      {\fontsize{20pt}{26pt}\selectfont{Dissertation}} \\
+      \vspace{1cm}
+      {\fontsize{24pt}{26pt}\selectfont{Stanislav Geidl}} \\
   \end{center}
 
 \vspace*{9mm}
 
 \begin{center}
-  Supervisor: prof. RNDr. Jaroslav Koča, DrSc.
+  \fontsize{18pt}{18pt}Supervisor: prof. RNDr. Jaroslav Koča, DrSc.
 \end{center}
 
 \vfill
@@ -218,7 +196,6 @@
 
 \pagestyle{plain}
 
-\vspace*{10cm}
 \section*{Abstrakt}
 Chemoinformatické přístupy pro výpočet fyzikálních a chemických vlastností
 organických molekul, speciálně pak molekul dosud nesyntetizovaných, jsou velmi
@@ -251,7 +228,6 @@ zahrnuje získání 3D struktury molekul, výpočet jejich parciálních atomov�
 nábojů metodou EEM a aplikace nábojů pro predikci p$K_a$.
 \clearpage
 
-\vspace*{11cm}
 \section*{Abstract}
 Chemoinformatic approaches for predicting physicochemical properties, especially
 in the case of unsynthesized molecules, are beneficial in the drug design
@@ -280,12 +256,12 @@ partial atomic charges calculation, and pKa prediction.
 
 \clearpage
 
-\vspace*{18cm}
+\vspace*{8cm}
 \section*{Acknowledgements}
 ...
 \clearpage
 
-\vspace*{18cm}
+\vspace*{8cm}
 \section*{Declaration}
 I hereby declare that this disertation thesis is my original authorial work,
 which I have worked on alone. All sources, references and literature used or
@@ -298,8 +274,53 @@ Brno, xxth June 2021
 \hspace{12cm}Stanislav Geidl \\
 
 %TODO check text and format it
+\clearpage
+
+\section*{Publication list with definition of autor's contribution}
+
+This dissertation is based on 3 articles of dissertation author (Stanislav Geidl, SG): 
+
+\vspace{10mm}
+
+\underline{Geidl S}, Svobodová Vařeková R, Bendová V, Petrusek L, Ionescu C-M,
+Jurka Z, Abagyan R, Koča J: \textbf{How Does the Methodology of 3D Structure
+Preparation Influence the Quality of p$K_a$ Prediction?} \textit{J Chem Inf Model}
+2015, \textbf{55}:1088–1097.
+
+\vspace{5mm}
+
+SG prepared the input dataset (by extension of published datasets), performed
+all the calculations, participated in the analysis of the results, and wrote
+a part of the manuscript, including all tables and graphics.
+
+\vspace{10mm}
+
+\underline{Geidl S}, Bouchal T, Raček T, Svobodová Vařeková R, Hejret V,
+Křenek A, Abagyan R, Koča J: \textbf{High-quality and universal empirical atomic
+charges for chemoinformatics applications.} \textit{J Cheminform} 2015,
+\textbf{7}:59.
+
+\vspace{5mm}
+
+SG participated in the study's design, and cooperated in the preparation of
+the input data (molecules and published EEM parameters) and in QM charge 
+calculation. SG performed the analyses and the interpretation of the data.
+
+\vspace{10mm}
+
+Raček T, Pazúriková J, Svobodová Vařekova R, \underline{Geidl S}, Křenek A,
+Falginella FL, Horský V, Hejret V, Koča J: \textbf{NEEMP: Software
+for validation, accurate calculation and fast parameterization of EEM charges.}
+\textit{J Cheminform} 2016, \textbf{8}:1.
+
+\vspace{5mm}
+
+SG prototyped the DE-Min approach and designed some new NEEMP features, such as
+the usage of RMSE instead of $R^2$. SG also implemented a preparation of validion
+reports.
 
 \clearpage
+
 %\pagestyle{empty}
 \tableofcontents
 
