@@ -1,1 +1,1 @@
-chemoinformatics, partial atomic charges, pKa
+chemoinformatics; prediction; QSPR; dissociation constant; pKa; 3D structure; partial atomic charges; EEM
