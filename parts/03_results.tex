@@ -13,7 +13,7 @@ on the last one:
 \underline{Geidl S}, Svobodová Vařeková R, Bendová V, Petrusek L, Ionescu C-M,
 Jurka Z, Abagyan R, Koča J: \textbf{How Does the Methodology of 3D Structure
 Preparation Influence the Quality of p$K_a$ Prediction?} \textit{J Chem Inf Model}
-2015, \textbf{55}:1088–1097.
+2015, \\* \textbf{55}:1088–1097.
 \vspace{5mm}
 
 In this article, we utilized different approaches to generate the 3D structures
@@ -44,7 +44,7 @@ parameters were published in a scientific paper:
 
 \vspace{5mm}
 \underline{Geidl S}, Bouchal T, Raček T, Svobodová Vařeková R, Hejret V,
-Křenek A, Abagyan R, Koča J: \textbf{High-quality and universal empirical atomic
+Křenek A, \\* Abagyan R, Koča J: \textbf{High-quality and universal empirical atomic
 charges for chemoinformatics applications.} \textit{J Cheminform} 2015,
 \textbf{7}:59.
 \vspace{5mm}
@@ -74,7 +74,7 @@ charges as descriptors. The article's goal was to discover how the methodology
 of 3D structure preparation influences the quality of pKa prediction.
 We prepared a dataset containing 60 phenols, 82 carboxylic acids, 48 anilines,
 and additional testing 53 phenols for these purposes. We took structures
-from 5 different sources for all these molecules: PubChem \cite{pubchem},
+from 5 different sources for all these mo\-le\-cules: PubChem \cite{pubchem},
 DTP NCI database \cite{nci}; Balloon \cite{Vainio2007}, Frog2 \cite{frog2},
 OpenBabel \cite{openbabel}, and RDKit \cite{rdkit} software. We used neutral forms of all
 the molecules and dissociated forms of phenols and carboxylic acids, and
@@ -82,7 +82,7 @@ associated forms of anilines. We also optimized these structures with MM
 (Molecular mechanics) and QM. All combination led to 7220 structures for that
 we calculated four different QM, one semiempirical QM, four different EEM
 charges, and Gasteiger-Marselli charges. We created 516 QSPR models for all
-these molecules and charges. The robustness of these models was tested by
+molecules and charges. The robustness of these models was tested by
 cross-validation and QM charges also by an independent test set of phenols.
 
 We confirmed that QM and EEM charge descriptors could be used for p$K_a$
@@ -94,7 +94,7 @@ in chemoinformatics is much more appropriate. In our models, we were not able
 to use Gasteiger-Marsili charges to get an adequate quality. 
 
 We focused on different types of influence. For classes of the benzene
-derivates (phenols and anilines) was much easier to obtain high-quality models.
+de\-ri\-vates (phenols and anilines) was much easier to obtain high-quality models.
 Nevertheless, for aliphatic hydrocarbon derivates (carboxylic acid), it was more
 challenging.
 
@@ -174,7 +174,7 @@ and basis set combinations showed any problem in the quality of EEM parameters.
 This also confirmed that we used an appropriate selection of reference QM
 charges.
 
-We also evaluated already existing tools for calculating partial atomic charges,
+We also evaluated already existing tools for calculating atomic charges,
 and all the tools showed some issues. For example, OpenBabel tool \cite{openbabel}  is using
 Bult2002\_mpa parameter set \cite{Bultinck2002}, but developers extended this
 set about missing atom types with parameters for different atom types. This hack
@@ -224,7 +224,7 @@ method (LR vs. DE-MIN) and metrics for model validation ($R^2$ vs. RMSE).
 The case study proved that LR (with both metrics) is suitable for smaller
 and homogeneous datasets. DE-MIN (with RMSD metric) is a more robust approach
 that can also handle the parametrization of larger and more heterogeneous
-datasets. The validation case study provided similar findings to the previous
+da\-ta\-sets. The validation case study provided similar findings to the previous
 article -- low coverage of the older parameter sets. Also, a quality validation
 agrees with the previous article for smaller datasets with molecules comprised
 of C, H, N, and O. On the other hand, the case study uncovered an interesting
