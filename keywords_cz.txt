@@ -1,1 +1,1 @@
-chemoinformatika; predikce; QSPR; disocianční konstanta; pKa; 3D struktura; parciální atomové náboje; EEM
+chemoinformatika; predikce pKa; QSPR; 3D struktura; parciální atomové náboje; EEM

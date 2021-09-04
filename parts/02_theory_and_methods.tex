@@ -5,7 +5,7 @@
 
 \section{Molecular Structure in Computer}
 
-The chemical structure is the essential information for chemoinformatics and
+A chemical structure is an essential information for chemoinformatics and
 computational chemistry calculations. We recognize different types of chemical
 structures according to the complexity of information \cite{Gasteiger2006}. 
 
@@ -31,8 +31,7 @@ because we use them as input for high-throughput methods. For this reason, many
 resources were devoted to the development of fast and accurate 3D structure
 prediction methods \cite{Sadowski2008}. These can be classified into the following
 groups \cite{Sadowski2008}: rule-based and data-based, fragment-based, numerical methods, and
-conformational analysis. These rule-based and data-based, fragment-based
-methods are partially overlying.
+conformational analysis.
 
 \subsection{Rule-Based and Data-Based Methods}
 
@@ -60,10 +59,10 @@ the optimization process from MM or/and QM.
 \subsection{Conformational Analysis}
 
 This method generates a set of conformations for one molecule using
-different approaches - genetic algorithms, systematic methods, random
+different approaches -- genetic algorithms, systematic methods, random
 techniques, Monte Carlo or MD simulation. The one or more different structures
 are selected based on criteria such as the number of conformers, minimum
-RMSD, only conformations with the lowest MM energy (low-energy conformers).
+RMSD \footnote{Root-mean-square deviation}, only conformations with the lowest MM energy (low-energy conformers).
 
 \chapter{Partial Atomic Charges}
 
@@ -71,8 +70,8 @@ RMSD, only conformations with the lowest MM energy (low-energy conformers).
 
 Atomic charges are a theoretical concept for the quantitative description of
 electron density around every atom in a molecule. The first basic concept came
-from early chemistry, where an integer expressed these charges (e.g. -1, +2).
-Later, they were a real number (partial charge) in organic chemistry and
+from early chemistry, where a number expressed these charges (e.g. -1, +2).
+Later, they were real numbers (partial charges) in organic chemistry and
 physical chemistry \cite{Atkins2011}. It is a great approach to explain the
 mechanism of a lot of chemical reactions. Recently, partial atomic charges also
 became popular in chemoinformatics, as they proved to be informative descriptors
@@ -83,7 +82,7 @@ searches \cite{Lyne2002, Bissantz2000}. In reality, we are not able to measure
 these numbers, only calculate or estimate them. For such reasons, many different
 approaches for the calculation of partial atomic charges were developed.
 
-\section{Overview of Charge Calculation Methods}
+\section{Charge Calculation Methods}
 
 \subsection{QM Charge Methods}
 
@@ -99,9 +98,9 @@ improves the MPA method by orthogonalization of specific atoms and after this,
 NPA performs charge assignment from electron density the same way as in MPA.
 NPA atomic charges are more stable and independent of the size of basis sets.
 Other possible population analyses are Löwdin population
-analysis \cite{Lowdin1950}, Hirshfeld population analysis \cite{Hirshfeld1977}.
+analysis \cite{Lowdin1950}, and Hirshfeld population analysis \cite{Hirshfeld1977}.
 
-AIM (atoms-in-molecules) charge calculation scheme is based on the idea that
+AIM (atoms-in-molecules) \cite{Bader1985, Bader1991} charge calculation scheme is based on the idea that
 electron density measured by X-ray can help with the calculation of partial
 charges. Bader and his coworkers \cite{Bader1985, Bader1991} defined an atomic
 volume that is used for charge calculation. Other well-known approaches are
@@ -109,21 +108,21 @@ electrostatic potential fitting methods (ESP) like CHELPG \cite{Breneman1990}
 or MK (Merz-Singh-Kollman) \cite{Besler1990} and their extension -- RESP
 methods \cite{Bayly1992}.
 
-Cramer and at \cite{Marenich2009} also developed semiempirical methods -- charge
+Cramer et al. \cite{Marenich2009} also developed semiempirical methods -- charge
 model 5 (CM5), which extends Hirshfeld population analysis by empirical
 parameters to reproduce charge-dependent observables. 
 
 \subsection{Empirical Methods}
 
-Empirical approaches use only empirical parameters, and some of these can
-calculate charges from the 3D structure or only from the topology (2D structure)
+Empirical charge calculation approaches use only empirical parameters, and some of these can
+calculate charges from the 3D structure or only based on the topology (2D structure)
 of a molecule. Therefore, they are distinctly faster than QM approaches. 
 
 One of the first empirical methods developed, CHARGE \cite{Abraham2004}, performs a breakdown
 of the charge transmission by polar atoms into single-bond, double-bond, and 
 triple-bond additive contributions. Other empirical methods have been developed
 on the electronegativity equalization principle. One group of these empirical
-approaches are using the Laplacian matrix formalism and the product is
+approaches use the Laplacian matrix formalism and the product is
 a redistribution of electronegativity: Gasteiger-Marsili (PEOE, partial
 equalization of orbital electronegativity) \cite{Gasteiger1980},
 GDAC (geometry-dependent atomic charge) \cite{Cho2001}, KCM (Kirchhoff charge
@@ -133,8 +132,8 @@ function) \cite{Shulga2008}.
 
 The second group of approaches applies the full equalization of orbital
 electronegativity. For example, this group contains EEM (electronegativity
-equalization method) \cite{Mortier1986} and its extensions (
-ABEEM \cite{Yang1997}, SFKEEM \cite{Chaves2006}). Another example is charge
+equalization method) \cite{Mortier1986} and its extensions (ABEEM \cite{Yang1997},
+SFKEEM \cite{Chaves2006}). Another example is charge
 equilibration QEq \cite{Rappe1991} and its extensions (EQEq -- extended QEq
 \cite{Wilmer2012}, SQE  -- split charge equilibration \cite{Nistor2006}).
 
@@ -181,7 +180,7 @@ The second principle is the principle of the charge balance. The sum of all
 charges is equal to the total charge $Q$:
 
 \begin{equation}
-    \sum_{x=1} q_x = Q
+    \sum^N_{x=1} q_x = Q
 \end{equation}
 where $q_x$ is the charge of the atom $x$.
 
@@ -189,7 +188,7 @@ And the last principle is the principle of charge-dependent electronegativity.
 This principle is the definition of atomic electronegativity, and states that
 the electronegativity of each atom can be expressed as a function of its charge: 
 
-\begin{equation}
+\begin{equation} \label{eq:eem0}
     \chi_i = A_i + B_i \cdot q_i + \kappa \sum^N_{j=1 \: i\neq{j}} \frac{q_j}{R_{i,j}} 
 \end{equation}
 where $R_{i,j}$ is the distance between atoms $i$ and $j$, and the coefficients
@@ -235,18 +234,18 @@ Chaves2006, Svobodova2007, Jirouskova2009, Ouyang2009}.
 Therefore, EEM charges were correlated with the QM
 charge calculated with the same method used for parametrization.
 
-\section{Quality and Usability of EEM parameters}
+\section{Quality and Usability of EEM Parameters}
 
 The quality of EEM parameters describes how the empirical charges computed
 using these EEM parameters correspond with QM charges used for EEM
 parameterization. Three main characteristics (statistics \cite{Urdan2011, Verzani2018})
-can describe the quality of EEM parameters -- the coefficient of determination
-root mean square error (RMSE) and average absolute error ($\bar{\Delta}$).
+can describe the quality of EEM parameters -- the coefficient of determination ($R^2$),
+root mean square error (RMSE), and average absolute error ($\bar{\Delta}$).
 
 \textbf{The coefficient of determination $R^2$} is the squared value of the
 Pearson coefficient (equation \ref{eq:coef_det}). This value describes the
-linear correlation rate. Values close to 1 mean that values correlate very well,
-and values close to 0 mean no correlation.
+linear correlation rate. Values close to $1$ mean that charges correlate very well,
+and values close to $0$ mean no correlation.
 
 \begin{equation} \label{eq:coef_det}
     R = \sqrt{\frac{
@@ -282,7 +281,7 @@ according to an equation:
     }
 \end{equation}
 
-Their \textbf{coverage} describes the applicability of EEM parameters.
+The \textbf{coverage} describes the applicability of EEM parameters.
 Coverage is a percentage value describing EEM parameters' ability to calculate
 charges for individual molecules in a dedicated dataset. \textit{De facto},
 this coverage depends on the representation of atom types in EEM parameters.
@@ -297,7 +296,7 @@ and $N_{tot}$ is the total number of molecules in a dataset.
 
 For the parameterization of EEM charges, a lot of different methods have been
 introduced. We can summarize it into two groups: one group contains
-a method that analytically solves equation \cite{eq:eem} -- linear
+a method that analytically solves equation \ref{eq:eem} -- linear
 regression \cite{Svobodova2007, Jirouskova2009} and the
 second group contains optimization methods \cite{Ouyang2009}  such as
 Accelerated Random Search, Particle Swarm Optimization, and Differential
@@ -320,7 +319,7 @@ detail below:
     \end{array}
 \end{equation}
 
-Equations are derived from equations \ref{eq:eem1} and \ref{eq:eem2}, which
+Equations are derived from equations \ref{eq:eem0} and \ref{eq:eem2}, which
 define the EEM method. In the LR method, the dataset of molecules with QM
 charges can change in every iteration to improve the quality of resulting
 charges. Quality criterium can be the Pearson correlation coefficient or
@@ -350,7 +349,7 @@ understanding protein-ligand interactions \cite{Klebe2000, Lee2009}.
 
 \section{Overview of Approaches}
 
-Several different approaches for pKa prediction have been
+Several different approaches for p$K_a$ prediction have been
 developed \cite{Lee2009, Rupp2010, Fraczkiewicz2006, Ho2010}. 
 
 \subsection{LFER (Linear Free Energy Relationships) \\ Methods}
@@ -366,7 +365,7 @@ EPIK \cite{Shelley2008}, and SPARC \cite{Hillal1995}.
 \subsection{Database Methods}
 
 These methods \cite{Sayle, Blower2006} use a library (database) of molecules
-with known pKa values. The p$K_a$ value is taken directly from this library, or 
+with known p$K_a$ values. The p$K_a$ value is taken directly from this library, or 
 it is interpolated or triangulated from most similar molecules in this library.
 Most accurate results are produced only for molecules that are similar to
 molecules in the database. For this reason, it is essential to have
