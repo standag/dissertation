@@ -3,7 +3,7 @@
 
 \chapter{Structure}
 
-\section{Molecular Structure in Computer}
+\section{Molecular Structure in Computer Representation}
 
 A chemical structure is an essential information for chemoinformatics and
 computational chemistry calculations. We recognize different types of chemical
@@ -21,8 +21,9 @@ these 3D structures.
 In chemoinformatics, two-dimensional structures are often used, but the
 three-di\-men\-sio\-nal structure can often bring new information into the
 \textit{in silico} calculations or models. On the other hand, this 3D structure
-can be obtained experimentally for a limited number of small molecules. What
-with other mo\-le\-cules, including those which were not synthesized yet?
+can be obtained experimentally for a limited number of small molecules. How do
+we determine 3D structure of other molecules, including those which were not
+synthesized yet?
 
 \section{3D Structure Calculation}
 
@@ -71,7 +72,7 @@ RMSD \footnote{Root-mean-square deviation}, only conformations with the lowest M
 Atomic charges are a theoretical concept for the quantitative description of
 electron density around every atom in a molecule. The first basic concept came
 from early chemistry, where a number expressed these charges (e.g. -1, +2).
-Later, they were real numbers (partial charges) in organic chemistry and
+Later, atomic charges became real numbers in organic chemistry and
 physical chemistry \cite{Atkins2011}. It is a great approach to explain the
 mechanism of a lot of chemical reactions. Recently, partial atomic charges also
 became popular in chemoinformatics, as they proved to be informative descriptors
@@ -398,7 +399,7 @@ chemical software package \cite{jaguar}.
 The quantitative structure-property relationship method \cite{Dixon1993,
 Zhang2006, Jelfs2007} uses mainly
 a linear model to describe the relationship between molecular structure and
-a property of a molecule, in our case p$K_a$. In those models, structures are
+a property of a molecule, in our case p$K_a$. In these models, structures are
 presented by descriptors \cite{Todoschini2009} that are numerical expressions of molecular
 properties. For example, descriptors can be the number of hydrogen atoms, the 
 ratio between carbon atoms and all atoms in the molecule, or solvent accessible
